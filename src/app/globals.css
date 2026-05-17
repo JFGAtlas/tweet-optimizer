@@ -1,1 +1,40 @@
 @import "tailwindcss";
+
+@theme {
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-card: #0f1115;
+  --color-card-border: #1e2329;
+  --color-primary: #1d9bf0; /* X Blue */
+  --color-primary-hover: #1a8cd8;
+  --color-secondary: #16181c;
+  --color-secondary-hover: #202327;
+  --color-accent: #00ba7c; /* Green for positive */
+  --color-danger: #f4212e; /* Red for negative */
+  --color-muted: #71767b;
+}
+
+@layer base {
+  :root {
+    --background: #000000;
+    --foreground: #ffffff;
+  }
+  
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400;
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:border-gray-600 hover:shadow-[0_0_15px_rgba(29,155,240,0.1)];
+  }
+  .glass-panel {
+    @apply bg-black/40 backdrop-blur-md border border-white/10;
+  }
+}
